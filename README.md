@@ -1,2 +1,2 @@
-# bleat-personal
-Various personal yet public projects
+# HTML Article Builder
+Explanation will go here...
