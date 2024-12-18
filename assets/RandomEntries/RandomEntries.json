@@ -1,19 +1,19 @@
 [
     {
-        "title": "the first",
-        "content": "I'm the first",
-        "author": "By the first.",
+        "title": "The first",
+        "content": "I'm the first article in the list of articles to be displayed here. I'm not the first article ever, no no no. I wouldn't want to steal the credit from «Mister Awful Peanuts»...",
+        "author": "By the first (in a way).",
         "time": "18-12-2024, 17:17."
     },
     {
         "title": "The second",
-        "content": "I'm the second",
-        "author": "By the second.",
-        "time": "Tomorrow forever, 12:00AM."
+        "content": "I'm the second article in the list. Obviously, I'm not the second article to be created. Not even Mister First is. That honor would go to the, uh...<br>Well, let's call him the «Evil Inappropriate Wizard». He's a big fan of making <i>certain</i> parts of people's bodies explode.",
+        "author": "By the second (afraid of the wizard).",
+        "time": "Yesterday, at noon."
     },
     {
         "title": "Audience participation!",
-        "content": "You! Yes, you! The person reading this!<br>Did you know that you can submit your own default article to display right here?<br>Just go to <a href='https://github.com/BleatBytes/html-article-builder/issues'>the Issues page</a> on Github and submit your ideas! Each submission will be manually reviewed by me before being approved and included in the website, so don't try to pull a fast one on me because you will soon be disappointed. Moreover, remember that the Github repository for this website is public, so don't share any sensitive information!<br>Thank you for your interest in the HTML Article Generator :)",
+        "content": "You! Yes, you! The person reading this!<br>Did you know that you can submit your own default article to display right here?<br>Just go to <a href='https://github.com/BleatBytes/html-article-builder/issues'>the Issues page</a> on Github and submit your ideas! Your submissions should have the following format: <br><code>{'title': 'Your title', 'content': 'The body of the text', 'author': 'Self-explanatory', 'time':, 'Day and time it was written'}</code><br><br>Each submission will be manually reviewed by me before being approved and included in the website, so don't try to pull a fast one on me because you will soon be disappointed. Moreover, remember that the Github repository for this website is public, so don't share any sensitive information!<br>Thank you for your interest in the HTML Article Generator :)",
         "author": "By the creator.",
         "time": "18/12/24, 18:47."
     }
