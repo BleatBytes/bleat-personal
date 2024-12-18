@@ -1,0 +1,20 @@
+[
+    {
+        "title": "the first",
+        "content": "I'm the first",
+        "author": "By the first.",
+        "time": "18-12-2024, 17:17."
+    },
+    {
+        "title": "The second",
+        "content": "I'm the second",
+        "author": "By the second.",
+        "time": "Tomorrow forever, 12:00AM."
+    },
+    {
+        "title": "Audience participation!",
+        "content": "You! Yes, you! The person reading this!<br>Did you know that you can submit your own default article to display right here?<br>Just go to <a href='https://github.com/BleatBytes/html-article-builder/issues'>the Issues page</a> on Github and submit your ideas! Each submission will be manually reviewed by me before being approved and included in the website, so don't try to pull a fast one on me because you will soon be disappointed. Moreover, remember that the Github repository for this website is public, so don't share any sensitive information!<br>Thank you for your interest in the HTML Article Generator :)",
+        "author": "By the creator.",
+        "time": "18/12/24, 18:47."
+    }
+]
