@@ -4,14 +4,14 @@ const $demoAuthor = document.querySelector('.journalAuthor');
 const $demoTime = document.querySelector('.journalFooter time');
 
 const randoChoice = async function readJSON() {
-    fetch('RandomEntries.json')
+    fetch('assets/RandomEntries/RandomEntries.json')
         .then(response => {
             if (!response.ok) {
                 $demoTitle.innerHTML = "Something has happened";
                 $demoContent.innerHTML = 'Something happened that made the page not load this particular part of it correctly. If this is a repeated occurrence, please <a href="https://github.com/BleatBytes/html-article-builder/issues">let me know</a>';
                 $demoAuthor.innerHTML = "By the creator.";
                 $demoTime.innerHTML = "Right now.";
-                throw new Error ("Couldn't read RandomEntries.json. HTTP error " + response.status);
+                throw new Error (`Couldn't read RandomEntries.json. HTTP error ${response.status}`);
             }
             return response.json();
         })
@@ -32,7 +32,6 @@ const randoChoice = async function readJSON() {
 
 function randoMath(max, min) {
     const calc = Math.floor(Math.random() * (max - min)) + min;
-    console.log(calc);
     return calc;
 };
 
