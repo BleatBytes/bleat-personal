@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--[if lt IE 9]>
+	<script src “http://html5shiv.googlecode.com/svn/trunk/html.js”></script>
+	<![endif]-->
+	<title>HTML Article Generator</title>
+	<link rel="stylesheet" type="text/css" href="/JournalGenStyle.css">
+</head>
+<body>
+    <div id="DEMOexplanation">
+        <p>Hello! This is the HTML Article Generator. Enter the info, click the button and create a new article!</p>
+        <div id="DEMOfakeform">
+            <select class="modeSelect">
+        <option value="beginner">Simple mode</option>
+        <option value="advanced">Advanced mode</option>
+      </select>
+            <br>
+            <label for="newJournalTitle">Journal entry title: </label> <input id="newJournalTitle" placeholder="My new entry"></input>
+            <br>
+            <label for="newJournalText">Journal text: </label><br><textarea id="newJournalText" placeholder="Had the best breakfast today..."></textarea>
+            <br>
+            <label for="newJournalAuthor">Journal author: </label><input id="newJournalAuthor" placeholder="John Doe"></input>
+            <br>
+            <div id="DEMOadvanced" style="display:none">
+                <label for="newJournalClass">Journal's class attribute: </label><input id="newJournalClass" placeholder="journalEntry"></input>
+                <br>
+                <label for="newJournalTextClass">Journal text's class attribute: </label><input id="newJournalTextClass" placeholder="journalContent"></input>
+                <br>
+                <label for="newJournalAuthorClass">Journal author's class attribute: </label><input id="newJournalAuthorClass" placeholder="journalAuthor"></input>
+                <br>
+                <label for="newJournalFooterClass">Journal footer's class attribute: </label><input id="newJournalFooterClass" placeholder="journalFooter"></input>
+                <br>
+                <label for="newJournalDatetime">Date format: </label>
+                <select id="newJournalDatetime">
+  <option value="DD/MM/YY">DD/MM/YY</option>
+  <option value="MM/DD/YY">MM/DD/YY</option>
+  <option value="YY/MM/DD">YY/MM/DD</option>
+  <option value="DD/MM/YYYY">DD/MM/YYYY</option>
+  <option value="MM/DD/YYYY">MM/DD/YYYY</option>
+  <option value="YYYY/MM/DD">YYYY/MM/DD</option>
+</select>
+<input id="replaceDateChar" type="checkbox"> </input><label for="replaceDateChar">Replace slashes with hyphens?
+                <br>
+                <label for="newJournalHourFormat">Hour format: </label>
+                <select id="newJournalHourFormat">
+  <option value="fullDay">24 hours</option>
+  <option value="halfDay">12 hours</option>
+</select>
+            </div>
+        </div>
+        <button onclick="evalForm()">Create journal entry</button>
+    </div>
+    <div id="DEMOhead">
+        <article class="DEMOjournalEntry">
+    <h1>This is a demo journal</h1>
+    <section class="DEMOjournalContent">This is a demo journal entry.<br>What does that mean? It means that this is here to give you an idea of what the HTML Journal Entry Creator can do.<br>Simply enter the information you'd like displayed on your journal entry on the appropiate field, and the article next to this one will change to reflect such changes. You will also get a copy-paste-friendly version of it, so you can copy the code over to your website.
+    </section>
+    <footer>
+        <p class="DEMOjournalFooter"><span class="DEMOjournalAuthor">By Valen.</span> <time datetime="2024-12-15">15/12/24, 23:15</time>
+        </p>
+    </footer>
+</article>
+      <article class="journalEntry">
+            <h1>The worst peanut??</h1>
+            <section class="journalContent">Today I ate a peanut. It was the grossest peanut I have ever eaten. What's strange is that you wouldn't really expect a peanut to be disgusting. What did they do to that thing??
+            </section>
+            <footer>
+                <p class="journalFooter"><span class="journalAuthor">By Blankname.</span> <time datetime="YYYY-MM-DD">12/12/24, 14:55</time>
+                </p>
+            </footer>
+        </article>
+      <textarea id="DEMOcopypaste"></textarea>
+    </div>
+    <script src="/RandomJournalDemo.js"></script>
+    <script src="/JournalGen.js"></script>
+</body>
