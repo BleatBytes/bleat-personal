@@ -16,5 +16,11 @@
         "content": "You! Yes, you! The person reading this!<br>Did you know that you can submit your own default article to display right here?<br>Just go to <a href='https://github.com/BleatBytes/html-article-builder/issues'>the Issues page</a> on Github and submit your ideas! Your submissions should have the following format: <br><code>{'title': 'Your title', 'content': 'The body of the text', 'author': 'Self-explanatory', 'time':, 'Day and time it was written'}</code><br><br>Each submission will be manually reviewed by me before being approved and included in the website, so don't try to pull a fast one on me because you will soon be disappointed. Moreover, remember that the Github repository for this website is public, so don't share any sensitive information!<br>Thank you for your interest in the HTML Article Generator :)",
         "author": "By the creator.",
         "time": "18/12/24, 18:47."
+    },
+    {
+        "title": "This is a demo journal",
+        "content": "This is a demo journal entry.<br>What does that mean? It means that this is here to give you an idea of what the HTML Article Generator can do.<br>Simply enter the information you'd like displayed on your journal entry on the appropiate field, and <b>the article next to this one</b> will change to reflect such changes. You will also get a copy-paste-friendly version of it, so you can copy the code over to your website.",
+        "author": "By Valen.",
+        "time": "15/12/24, 23:15"
     }
 ]

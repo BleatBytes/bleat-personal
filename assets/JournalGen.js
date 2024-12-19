@@ -13,9 +13,12 @@ var $modeSelect = document.querySelector('select.modeSelect');
 var $dateSeparator = document.querySelector('#replaceDateChar');
 var $dayFormat = document.querySelector('select#newJournalDatetime');
 var $hourFormat = document.querySelector('select#newJournalHourFormat');
+// Text output
+var $userOutput = document.querySelector('#DEMOcopypaste');
 // Non-element vars
 var $date;
 var separator = "/";
+var flag = 0;
 
 
 // Gets the current day and time for <time>
@@ -96,6 +99,7 @@ $modeSelect.addEventListener("change", function() {
   this.value === "beginner" && console.log("Beginner mode selected");
   this.value === "advanced" && console.log("Advanced mode selected");
 });
+
 // Separator handle
 $dateSeparator.addEventListener("change", function(event) {
   var dateFormat = $dayFormat.value;
@@ -123,6 +127,7 @@ function evalForm () {
       alert("Fill out all the fields before submitting!");
       break;
     default:
+      flag = 1;
       newEntry();
   };
 };
@@ -138,7 +143,7 @@ function optionalFieldsHandle(source) {
 
 // Creates the journal entry
 function newEntry() {
-  todayHandle(); // For the date handlers to work correctly
+  todayHandle();
   const entryTemplate = `
   <h1>${$userTitle.value}</h1>
   <section class="${optionalFieldsHandle($userTextClass)}">${$userText.value}
@@ -158,4 +163,15 @@ function newEntry() {
   document.querySelector('#DEMOcopypaste').value = newDemo.outerHTML;
 };
 
-// Context menu for the user input textarea
+// "Copy to clipboard" button
+function copyToClipboard() {
+  if (flag === 1) {
+    $userOutput.select();
+    $userOutput.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText($userOutput.value);
+    document.querySelector('[onclick="copyToClipboard()"]').textContent = "Copied to clipboard!";
+  } else {
+    document.querySelector('[onclick="copyToClipboard()"]').textContent = "No selection to copy!";
+  };
+  setTimeout(() =>{document.querySelector('[onclick="copyToClipboard()"]').textContent = "Copy to clipboard"}, 2000);
+};

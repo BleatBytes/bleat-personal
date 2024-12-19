@@ -2,6 +2,27 @@ const $demoTitle = document.querySelector('.journalEntry h1');
 const $demoContent = document.querySelector('.journalContent');
 const $demoAuthor = document.querySelector('.journalAuthor');
 const $demoTime = document.querySelector('.journalFooter time');
+const $placeholderText = document.querySelector('#newJournalText');
+
+const pholders = [
+    "Had the best breakfast today...",
+    "Something great happened!",
+    "Did you know that (...)?",
+    "Met this new person today...",
+    "Here's my opinion on...",
+    "Today I found out about...",
+    "My best friend said that...",
+    "I'm angry about...",
+    "I've been sad lately about...",
+    "Here's my review of..."
+];
+
+var rando;
+
+const randoPholder = function() {
+    rando = Number(randoMath(pholders.length, 0));
+    $placeholderText.placeholder = pholders[rando];
+}();
 
 const randoChoice = async function readJSON() {
     fetch('assets/RandomEntries/RandomEntries.json')
@@ -17,8 +38,7 @@ const randoChoice = async function readJSON() {
         })
         .then(json => {
             const fillers = json;
-            const rando = Number(randoMath(fillers.length, 0));
-
+            rando = Number(randoMath(fillers.length, 0));
             $demoTitle.innerHTML = fillers[rando].title;
             $demoContent.innerHTML = fillers[rando].content;
             $demoAuthor.innerHTML = fillers[rando].author;
@@ -28,6 +48,16 @@ const randoChoice = async function readJSON() {
         .catch(function() {
             this.dataError.true;
         });
+}();
+
+const funChange = function() {
+    rando = Number(randoMath(1000, 0));
+    if (rando === 1) {
+        document.querySelector('#newJournalTitle').placeholder = "My new EVIL entry >:)";
+        $placeholderText.placeholder = "Had an EVIL day doing EVIL THINGS because I am EVIL FOREVER!!!! >:)"
+        document.querySelector('#newJournalAuthor').placeholder = "EVIL John Doe >:)";
+        console.log("You've summoned Evil John Doe! He has a 1/1000th chance of appearing. Congrats! >:)");
+    };
 }();
 
 function randoMath(max, min) {
