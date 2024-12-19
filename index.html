@@ -5,7 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>HTML Article Generator</title>
     <link href="assets/BleatBytes favicon.ico" rel="icon" type="image/x-icon">
-	<link href="assets/JournalGenStyle.css" rel="stylesheet">
+	<link href="assets/JournalGenStyle.css" rel="stylesheet" media="only screen and (min-width: 449px)">
+    <link href="assets/JournalGenStyle_mobile.css" rel="stylesheet" media="only screen and (max-width: 448px)">
 </head>
 <body>
     <div id="ArticlesHome">
@@ -17,22 +18,41 @@
                     <option value="advanced">Advanced mode</option>
                 </select>
                 <br>
-                <span style="color:#f75454;margin-right:3px">*</span><label for="newJournalTitle">Journal entry title:</label><input id="newJournalTitle" placeholder="My new entry"></input>
+                <label for="newJournalTitle"><span style="color:#f75454;margin-right:3px">*</span>Journal entry title:</label>
+                <br class="mobile-jump">
+                <input id="newJournalTitle" placeholder="My new entry"></input>
                 <br>
-                <span style="color:#f75454;margin-right:3px">*</span><label for="newJournalText">Journal text:</label><br><textarea id="newJournalText" placeholder="Had the best breakfast today..."></textarea>
+                <label for="newJournalText"><span style="color:#f75454;margin-right:3px">*</span>Journal text:</label><br><textarea id="newJournalText" placeholder="Had the best breakfast today..."></textarea>
                 <br>
-                <span style="color:#f75454;margin-right:3px">*</span><label for="newJournalAuthor">Journal author:</label><input id="newJournalAuthor" placeholder="John Doe"></input>
+                <button class="htmlEdit" onclick="insertStyle(this)" title="Emphasis (italics)"><em>&lt;em&gt;</em></button>
+                <button class="htmlEdit" onclick="insertStyle(this)" title="Strong (bold)"><strong>&lt;strong&gt;</strong></button>
+                <button class="htmlEdit" onclick="insertStyle(this)" title="Hyperlink"><span style="color:#0000EE;text-decoration: underline;">&lt;a&gt;</span></button>
+                <button class="htmlEdit" onclick="deleteText()">Clear all text</button>
+                <br>
+                <br class="mobile-jump">
+                <label for="newJournalAuthor"><span style="color:#f75454;margin-right:3px">*</span>Journal author:</label>
+                <br class="mobile-jump">
+                <input id="newJournalAuthor" placeholder="John Doe"></input>
                 <br>
                 <div id="DEMOadvanced" style="display:none">
-                    <label for="newJournalClass">Journal's class attribute:</label><input id="newJournalClass" placeholder="journalEntry"></input>
+                    <label for="newJournalClass">Journal's class attribute:</label>
+                    <br class="mobile-jump">
+                    <input id="newJournalClass" placeholder="journalEntry"></input>
                     <br>
-                    <label for="newJournalTextClass">Journal text's class attribute:</label><input id="newJournalTextClass" placeholder="journalContent"></input>
+                    <label for="newJournalTextClass">Journal text's class attribute:</label>
+                    <br class="mobile-jump">
+                    <input id="newJournalTextClass" placeholder="journalContent"></input>
                     <br>
-                    <label for="newJournalAuthorClass">Journal author's class attribute:</label><input id="newJournalAuthorClass" placeholder="journalAuthor"></input>
+                    <label for="newJournalAuthorClass">Journal author's class attribute:</label>
+                    <br class="mobile-jump">
+                    <input id="newJournalAuthorClass" placeholder="journalAuthor"></input>
                     <br>
-                    <label for="newJournalFooterClass">Journal footer's class attribute:</label><input id="newJournalFooterClass" placeholder="journalFooter"></input>
+                    <label for="newJournalFooterClass">Journal footer's class attribute:</label>
+                    <br class="mobile-jump">
+                    <input id="newJournalFooterClass" placeholder="journalFooter"></input>
                     <br>
                     <label for="newJournalDatetime">Date format:</label>
+                    <br class="mobile-jump">
                     <select id="newJournalDatetime">
                         <option value="DD/MM/YY">DD/MM/YY</option>
                         <option value="MM/DD/YY">MM/DD/YY</option>
@@ -44,6 +64,7 @@
                     <input id="replaceDateChar" type="checkbox"> </input><label for="replaceDateChar">Replace slashes with hyphens?</label>
                     <br>
                     <label for="newJournalHourFormat">Hour format:</label>
+                    <br class="mobile-jump">
                     <select id="newJournalHourFormat">
                         <option value="fullDay">24 hours</option>
                         <option value="halfDay">12 hours</option>
@@ -54,7 +75,7 @@
             <br>
             <textarea id="DEMOcopypaste" placeholder="Your output will be here..."></textarea>
             <br>
-            <button onclick="copyToClipboard()">Copy to clipboard</button>
+            <button onclick="copyToClipboard(this)">Copy to clipboard</button>
         </div>
         <article class="journalEntry">
             <h1></h1>

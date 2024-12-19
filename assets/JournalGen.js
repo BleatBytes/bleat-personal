@@ -164,14 +164,66 @@ function newEntry() {
 };
 
 // "Copy to clipboard" button
-function copyToClipboard() {
+function copyToClipboard(button) {
   if (flag === 1) {
     $userOutput.select();
     $userOutput.setSelectionRange(0, 99999);
     navigator.clipboard.writeText($userOutput.value);
-    document.querySelector('[onclick="copyToClipboard()"]').textContent = "Copied to clipboard!";
+    button.textContent = "Copied to clipboard!";
   } else {
-    document.querySelector('[onclick="copyToClipboard()"]').textContent = "No selection to copy!";
+    button.textContent = "No selection to copy!";
   };
-  setTimeout(() =>{document.querySelector('[onclick="copyToClipboard()"]').textContent = "Copy to clipboard"}, 2000);
+  setTimeout(() =>{button.textContent = "Copy to clipboard"}, 2000);
+};
+
+// Handles the live Html editor buttons
+// There has to be a simpler way of doing it, right?
+var txtStart;
+var txtStartMemory = [];
+var txtEnd;
+var txtEndMemory = [];
+function insertStyle(button) {
+  var userinput = Promise.resolve(document.querySelector('#newJournalText'))
+    .then(textarea => {
+      txtStart = txtStartMemory.reverse()[0];
+      txtEnd = txtEndMemory.reverse()[0];
+      console.log("Currently at step 1. " + txtStart + "-" + txtEnd)
+      var allTxt = textarea.value;
+      var txtBefore = allTxt.slice(0, txtStart);
+      var txtBetween = allTxt.slice(txtStart, txtEnd);
+      console.log(txtBetween)
+      var txtAfter = allTxt.slice(txtEnd, allTxt.length);
+      switch(true) {
+        case button.title === "Emphasis (italics)":
+          var insertedStyle = `<em>${txtBetween}</em>`;
+          break;
+        case button.title === "Strong (bold)":
+          var insertedStyle = `<strong>${txtBetween}</strong>`;
+          break;
+        case button.title === "Hyperlink":
+          const hyperlink = prompt("Enter the url:");
+          var insertedStyle = `<a href="${hyperlink}">${txtBetween}</a>`;
+          break;
+      };
+      console.log(insertedStyle)
+      return [txtBefore, insertedStyle, txtAfter]
+    })
+    .then(txtHandle => {
+      console.log("Currently at step 2")
+      document.querySelector('#newJournalText').value = txtHandle[0] + txtHandle[1] + txtHandle[2];
+    })
+};
+$userText.addEventListener("selectionchange", () => {
+  var txtStart = $userText.selectionStart;
+  txtStartMemory.push(txtStart);
+  var txtEnd = $userText.selectionEnd;
+  txtEndMemory.push(txtEnd);
+  console.log(`Selection has been changed to ${txtStart} - ${txtEnd}`);
+});
+
+// Clears all text
+function deleteText() {
+  if (confirm("Are you sure you want to delete all your text? You won't be able to recover it.")) {
+    $userText.value = "";
+  };
 };
